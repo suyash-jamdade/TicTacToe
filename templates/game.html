@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}
+
+<title>Tic Tac Toe</title>
+
+<style>
+table{
+border-collapse : collapse;
+display:flex;
+align-items:center;
+justify-content: center;
+position: absolute;
+box-shadow: -10px 25px 50px rgba(0,0,0,.5);
+left: 60%;
+top:10%;
+transform:translate(-60%, 0%);
+width : 600px;
+height : 600px;
+}
+td {
+border: 1px solid black;
+width : 200px;
+height : 200px;
+font-size: 15px;
+text-align: center;
+}
+a{
+padding:30px;
+}
+.btn{
+position:relative;
+box-shadow: -5px 10px 10px rgba(0,0,0,.3);
+margin:10px;
+}
+.btn:hover{
+position:relative;
+box-shadow: -5px 5px 10px rgba(0,0,0,.2);
+}
+.btng{
+position:relative;
+margin-left:55%;
+margin-top:740px;
+margin-bottom:10px;
+transform:translate(-50%, 50%);
+display:flex;
+width:400px;
+align-item:center;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+    <table class="row table-dark">
+        {% for i in range(3) %}
+            <tr>
+                {% for j in range(3) %}
+                    <td>
+                        {% if game[i][j]  %}
+                            <a>{{ game [i][j] }}</a>
+                        {% else %}
+                            <a class=" text-dark" href="{{ url_for('play', row=i, col=j)}}">Play {{ turn }} here </a>
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="btng ">
+        <a  class="btn btn-secondary" href="{{ url_for('computer_move') }}">Computers Turn </a>
+        <a  class="btn btn-secondary" href="{{ url_for('home') }}">Back</a>
+        <a  class="btn btn-secondary" href="{{ url_for('reset') }}">Reset</a>
+    </div>
+
+{% endblock %}

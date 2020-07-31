@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+<style>
+h1
+{
+   position: relative;
+   margin:40%;
+   width:200px;
+   padding: 20px;
+   font-size: 20em;
+   font-family: Segoe Script;
+
+}
+a{
+width:200px;
+}
+p
+{
+  position: relative;
+  margin: 42%;
+  width:100px;
+  padding: 50 px;
+  font-size: 20em;
+  font-family:Ink Free;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+    <main role="main" class="inner cover">
+        <div class="title">
+            {% if win %}
+                <h1 class="cover-heading">{{ win }} won!</h1>
+            {% else %}
+                <h1 class="cover-heading"> Draw !</h1>
+            {% endif %}
+        </div>
+        <p class="lead">
+            <a  class="btn btn-secondary btn-lg font-weight-bold" href="{{ url_for('reset') }}">Play Again</a>
+        </p>
+    </main>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Tic Tac Toe</title>
+<style>
+h1
+{
+   width:400px;
+   position: relative;
+   padding: 20px;
+   font-size: 4em;
+   font-family: Segoe Script;
+   left: 50%;
+   top:50%;
+   transform:translate(-35%, -50%);
+}
+p
+{
+  position: absolute;
+  justify-content:center;
+  align-items:center;
+  padding: 50 px;
+  font-family: Ink Free;
+  font-size: 20em;
+  left: 50%;
+  top:45%;
+  transform:translate(-60%, -70%);
+}
+.btn-group
+{
+  	margin:0;
+	padding:0;
+    float:right;
+    list-style:none;
+    margin-top:30px;
+    margin-right:1px;
+    display:inline-block;
+    position:absolute;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">TIC TAC TOE</h1>
+    <p class="lead">
+      <a href="{{ url_for('start') }}" class="btn btn-outline-dark btn-lg font-weight-bold">Start</a>
+    </p>
+  </main>
+{% endblock %}
