@@ -15,7 +15,7 @@ def home():
     return render_template("start.html")
 
 
-@app.route("/start",methods = ['POST','GET'])
+@app.route("/start")
 def start():
     if "board" not in session:
         default()
@@ -26,13 +26,13 @@ def start():
     return render_template("game.html", game=session["board"], turn=session["turn"])
 
 
-@app.route("/clear",methods = ['POST','GET'])
+@app.route("/clear")
 def clear():
     default()
     return redirect(url_for("start"))
 
 
-@app.route("/play/<int:row>/<int:col>",methods = ['POST','GET'])
+@app.route("/play/<int:row>/<int:col>")
 def play(row, col):
     session["board"][row][col] = session["turn"]
     session["turn"] = switch_player(session["turn"])
@@ -60,7 +60,7 @@ def play(row, col):
     return redirect(url_for("start"))
 
 
-@app.route("/computer_move",methods = ['POST','GET'])
+@app.route("/computer_move")
 def computer_move():
     if "board" not in session:
         default()
@@ -68,7 +68,7 @@ def computer_move():
     return redirect(url_for("play", row=str(move[1][0]), col=str(move[1][1])))
 
 
-@app.route("/reset",methods = ['POST','GET'])
+@app.route("/reset")
 def reset():
     default()
     return render_template("game.html", game=session["board"], turn=session["turn"])
