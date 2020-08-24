@@ -6,11 +6,6 @@ import os
 
 app = Flask(__name__)
 
-# app.config["SECRET_KEY"] = '3464b9227663ae8ff9abec840f1b563c'
-# app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///site.db'
-
-# db = SQLAlchemy(app)
-
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
