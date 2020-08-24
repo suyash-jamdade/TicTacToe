@@ -1,14 +1,15 @@
 from flask import Flask, render_template, session, redirect, url_for
 from flask_session import Session
 from tempfile import mkdtemp
+from flask_sqlalchemy import SQLAlchemy
 import os 
 
 app = Flask(__name__)
 
-# app.config["SECRET_KEY"] = '3464b9227663ae8ff9abec840f1b563c'
-#app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///site.db'
+app.config["SECRET_KEY"] = '3464b9227663ae8ff9abec840f1b563c'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///site.db'
 
-#db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
