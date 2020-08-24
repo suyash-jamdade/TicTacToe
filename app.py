@@ -5,9 +5,10 @@ import os
 
 app = Flask(__name__)
 
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-SECRET_KEY = os.environ.get('SECRET_KEY')
-SQLALCHEMY_TRACK_MODIFICATIONS = False
+app.config["SECRET_KEY"] = '3464b9227663ae8ff9abec840f1b563c'
+app.config["DATABASE_URL"] = 'sqlite:///site.db'
+
+db = SQLAlchemy(app)
 
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
