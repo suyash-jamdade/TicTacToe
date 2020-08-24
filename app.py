@@ -1,8 +1,6 @@
 from flask import Flask, render_template, session, redirect, url_for
 from flask_session import Session
 from tempfile import mkdtemp
-from flask_sqlalchemy import SQLAlchemy
-import os 
 
 app = Flask(__name__)
 
