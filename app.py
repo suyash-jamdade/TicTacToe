@@ -1,11 +1,11 @@
 from flask import Flask, render_template, session, redirect, url_for
 from flask_session import Session
 from tempfile import mkdtemp
-import db
+
 
 app = Flask(__name__)
 
-db.create_all()
+
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -150,5 +150,5 @@ def minmax(curBoard, turn):
 
 
 if __name__ == '__main__':
-    
+
     app.run(debug=True)
