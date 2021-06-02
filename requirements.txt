@@ -15,5 +15,5 @@ MarkupSafe==1.1.1
 psycopg2==2.8.6
 psycopg2-binary==2.8.5
 requests==2.22.0
-urllib3==1.25.9
+urllib3==1.26.5
 Werkzeug==1.0.1
